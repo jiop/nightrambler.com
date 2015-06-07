@@ -1,0 +1,16 @@
+---
+name: home
+url: /
+animationIn: slideInRight
+---
+
+<div class="show-for-medium grid-block medium-6 vertical" ng-controller="mapController">
+  <ui-gmap-google-map options="map.options" center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+</div>
+
+<div class="grid-block medium-6 vertical" ng-controller="articlesController">
+  <div class="grid-content vertical shrink">
+    <h4>Look at This Swag Card</h4>
+  </div>
+  <div ng-repeat="article in articles" class="grid-content vertical shrink" ng-include="'/partials/article.html'"></div>
+</div>

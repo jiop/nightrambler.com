@@ -1,0 +1,36 @@
+{
+  "name": "ng-ScrollSpy.js",
+  "version": "3.2.1",
+  "main": [
+    "src/ng-ScrollSpy.js"
+  ],
+  "keywords": [
+    "angular",
+    "javascript",
+    "scrollspy"
+  ],
+  "ignore": [
+    "demo",
+    "test",
+    ".bowerrc",
+    ".gitignore",
+    "bower.json",
+    "Gruntfile.js",
+    "index.html",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "1.2.16"
+  },
+  "homepage": "https://github.com/patrickmarabeas/ng-ScrollSpy",
+  "_release": "3.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.2.1",
+    "commit": "f762cc51b14d8b329af1dad7ffc5f206b5290982"
+  },
+  "_source": "git://github.com/patrickmarabeas/ng-ScrollSpy.git",
+  "_target": "~3.2.1",
+  "_originalSource": "ng-ScrollSpy.js",
+  "_direct": true
+}
