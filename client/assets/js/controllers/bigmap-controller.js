@@ -2,7 +2,7 @@ angular
   .module('application.bigmapController', [])
   .controller(
     "bigmapController",
-    ['$scope', '$timeout', 'uiGmapLogger', '$http','uiGmapGoogleMapApi', '$state', 'articlesService'
+    ['$scope', '$timeout', 'uiGmapLogger', '$http','uiGmapGoogleMapApi', '$state', 'articlesService',
     function ($scope, $timeout, $log, $http, uiGmapGoogleMapApi, $state, articlesService) {
 
       uiGmapGoogleMapApi.then(function(maps) {
@@ -61,6 +61,7 @@ angular
         // ];
 
         $scope.map = {
+          markers: [],
           options : {
             disableDefaultUI: false
           },
@@ -101,9 +102,9 @@ angular
           }
         ];
 
-        for(i = $scope.map.markers.length - 1; i > 0; i--) {
-          if($scope.map.markers[i].coords !== undefined){
-            $scope.polylines[0].path.push($scope.map.markers[i].coords);
+        for(i = $scope.markers.length - 1; i > 0; i--) {
+          if($scope.markers[i].coords !== undefined){
+            $scope.polylines[0].path.push($scope.markers[i].coords);
           }
         }
 

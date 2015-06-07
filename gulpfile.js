@@ -53,7 +53,7 @@ var paths = {
   // These files are for your app's JavaScript
   appJS: [
     'client/assets/js/controllers/*',
-    // 'client/assets/js/services/*',
+    'client/assets/js/services/*',
     'client/assets/js/app.js'
   ]
 }

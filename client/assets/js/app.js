@@ -12,7 +12,7 @@
       'application.articlesController',
       'application.bigmapController',
       'application.mapController',
-      // 'application.articlesService'
+      'application.articlesService'
     ])
     .config(config)
     .run(run)

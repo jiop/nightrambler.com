@@ -6,6 +6,7 @@ angular
     function ($scope, $timeout, $log, $http, uiGmapGoogleMapApi, $state) {
       uiGmapGoogleMapApi.then(function(maps) {
         $scope.map = {
+          markers: [],
           options: {
             disableDefaultUI: true
           },
