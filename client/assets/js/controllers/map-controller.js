@@ -4,7 +4,9 @@ angular
     "mapController",
     ['$scope', '$timeout', 'uiGmapLogger', '$http','uiGmapGoogleMapApi', '$state',
     function ($scope, $timeout, $log, $http, uiGmapGoogleMapApi, $state) {
+
       uiGmapGoogleMapApi.then(function(maps) {
+        $scope.myGoogleMap = {};
         $scope.map = {
           markers: [],
           options: {
@@ -25,6 +27,10 @@ angular
           zoom: 17
         };
       });
+
+      $timeout(function() {
+        $scope.myGoogleMap.refresh()
+      }, 0);
 
       $scope.$on('moveMapEvent', function(event, args) {
         $scope.map.center = {
