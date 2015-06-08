@@ -7,9 +7,9 @@ animationIn: slideInRight
 <div class="grid-block" ng-controller="bigmapController">
   <ui-gmap-google-map center="map.center" control="myGoogleMap" options="map.options" zoom="map.zoom">
 
-    <ui-gmap-marker ng-repeat="m in markers" idKey="m.id" coords="m.coords"></ui-gmap-marker>
 
-    <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible' geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
+    <ui-gmap-markers models="markers" fit="'true'" coords="'coords'"></ui-gmap-markers>
+    <ui-gmap-polyline ng-repeat="p in polylines" path="p.path"stroke="p.stroke" visible='p.visible' geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
 
   </ui-gmap-google-map>
 </div>

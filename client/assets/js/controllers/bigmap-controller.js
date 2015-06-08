@@ -13,7 +13,8 @@ angular
         $scope.map = {
           markers: [],
           options : {
-            disableDefaultUI: false
+            disableDefaultUI: false,
+            mapTypeId: google.maps.MapTypeId.TERRAIN,
           },
           events: {
             tilesloaded: function (map) {
@@ -59,8 +60,17 @@ angular
         }
 
         $timeout(function() {
-          $scope.myGoogleMap.refresh()
+          $scope.myGoogleMap.refresh();
         }, 0);
+
+        // resize function add bounds to fit the markers
+        google.maps.event.addDomListener(window, "resize", function() {
+          var bounds = new google.maps.LatLngBounds();
+          for(var i in $scope.markers) { // your marker list here
+            bounds.extend(new google.maps.LatLng($scope.markers[i].coords.latitude, $scope.markers[i].coords.longitude));
+          }
+          $scope.myGoogleMap.getGMap().fitBounds(bounds);
+        });
       });
     }]
   );
