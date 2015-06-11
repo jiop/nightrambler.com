@@ -7,7 +7,7 @@ angular
       $scope.greeting = 'Hello World!';
 
       $scope.moveMap = function(coords) {
-        $rootScope.$broadcast('moveMapEvent', coords);
+        $rootScope.$broadcast('moveToMarkerEvent', coords);
       };
 
       $scope.articles = articlesService.getArticlesData();

@@ -5,7 +5,10 @@ animationIn: slideInRight
 ---
 
 <div class="show-for-medium grid-block medium-6 vertical" ng-controller="mapController">
-  <ui-gmap-google-map control="myGoogleMap" options="map.options" center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+  <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom">
+    <ui-gmap-markers models="map.markers" coords="'coords'"></ui-gmap-markers>
+    <ui-gmap-polyline model="polyline" path="polyline.path" stroke="polyline.stroke" visible='polyline.visible' geodesic='polyline.geodesic' fit="false" editable="polyline.editable" draggable="polyline.draggable" icons='polyline.icons'></ui-gmap-polyline>
+  </ui-gmap-google-map>
 </div>
 
 <div class="grid-block medium-6 vertical" ng-controller="articlesController">
