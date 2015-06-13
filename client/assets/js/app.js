@@ -7,13 +7,16 @@
       'foundation',
       'foundation.dynamicRouting',
       'foundation.dynamicRouting.animations',
-      'uiGmapgoogle-maps',
+      'leaflet-directive',
+
+      'application.articlesService',
+
       'application.appController',
       'application.articlesController',
-      'application.bigmapController',
-      'application.mapController',
-      'application.articlesService'
+      'application.homeMapController',
+      'application.completeMapController'
     ])
+    .constant('_', window._)
     .config(config)
     .run(run)
   ;

@@ -1,18 +1,67 @@
+////////////////////////////////////////////////////////////////
+
+// zfapps style
+
 @import "settings";
+
+$red1: #B20014;
+$red2: #ED2138;
+$red3: #FF001D;
+$green2: #259600;
+$green2: #216C0E;
+
+$primary-color: $green2;
+
+$card-divider-background: $green2;
+$card-border: 1px solid $green2;
+$card-color: isitlight($card-divider-background);
+
+$h1-font-size: rem-calc(18);
+$header-line-height: 1;
+$header-top-margin: .1rem;
+$header-bottom-margin: .1rem;
+
 @import "foundation";
 
-.angular-google-map {
-  @include grid-block(
-    $size: shrink, // Can be expand, shrink, or a number of columns
-    $orientation: horizontal, // Set to vertical for a vertical grid
-    $wrap: true, // Set to true to make columns wrap if they get too wide
-    $align: left, // Can be left, right, center, justify, or spaced
-    $order: 0 // Can be any positive number
+////////////////////////////////////////////////////////////////
+
+// Custom zfapps card
+
+.custom-card {
+  @include card-container(
+    $background: #fff, // Background color
+    $color: #000, // Text color
+    $border: 1px solid $card-divider-background, // Border
+    $radius: 4px, // Border radius
+    $shadow: 0 4px 10px black, // Box shadow
+    $padding: 1rem,
+    $margin: 1rem // Margin bottom
   );
+  margin-top: 0.5rem
+}
+// This is a card divider
+.custom-card-divider {
+  @include card-divider(
+    $background: $card-divider-background,
+    $padding: 1rem
+  );
+  color: white;
+}
+// This is a card section
+.custom-card-section {
+  @include card-section(
+    $padding: 1rem
+  );
+  color: black;
 }
 
-.angular-google-map,
-.angular-google-map-container {
+////////////////////////////////////////////////////////////////
+
+// Leaflet
+
+.leaflet-container {
   width: 100%;
   height: 100%;
 }
+
+////////////////////////////////////////////////////////////////

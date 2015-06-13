@@ -42,6 +42,23 @@ angular
         },
         {
           id: 3,
+          date: new Date(2015, 6, 13, 22, 0),
+          coords: {
+            latitude: 43.7884,
+            longitude: 5.0383,
+            zoom: 15
+          },
+          title: "Orgon",
+          text:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          id: 4,
           date: new Date(2015, 8, 19, 22, 0),
           coords: {
             latitude: -37.8602828,
@@ -56,6 +73,17 @@ angular
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
             "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          id: 5,
+          date: new Date(2015, 9, 19, 22, 0),
+          coords: {
+            latitude: -31.9527121,
+            longitude: 115.8604796,
+            zoom: 10
+          },
+          title: "Perth",
+          text: ""
         }
       ];
 

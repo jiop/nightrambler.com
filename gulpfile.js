@@ -42,6 +42,18 @@ var paths = {
     'bower_components/foundation-apps/js/angular/**/*.js',
     '!bower_components/foundation-apps/js/angular/app.js'
   ],
+  angularLeafletDirective: [
+    'bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js'
+  ],
+  underscoreJS: [
+    'bower_components/underscore/underscore.js'
+  ],
+  leafletJS: [
+    'bower_components/leaflet/dist/leaflet.js'
+  ],
+  leafletCSS: [
+    'bower_components/leaflet/dist/leaflet.css'
+  ],
   // These files include angular-google-maps
   angularGoogleMaps: [
     'bower_components/angular-google-maps/dist/angular-google-maps.js'
@@ -105,6 +117,36 @@ gulp.task('copy:foundation', function(cb) {
   ;
 
   cb();
+});
+
+gulp.task('copy:angular-leaflet-directive', function(cb) {
+  return gulp.src(paths.angularLeafletDirective)
+    .pipe(gulp.dest('./build/assets/js'))
+  ;
+});
+
+gulp.task('copy:leaflet', function(cb) {
+  gulp.src(paths.leafletJS)
+    .pipe(gulp.dest('./build/assets/js'))
+  ;
+
+  gulp.src(paths.leafletCSS)
+    .pipe(gulp.dest('./build/assets/css'))
+  ;
+
+  cb();
+});
+
+gulp.task('copy:underscore', function(cb) {
+  return gulp.src(paths.underscoreJS)
+    .pipe(gulp.dest('./build/assets/js'))
+  ;
+});
+
+gulp.task('copy:angular-leaflet-directive', function(cb) {
+  return gulp.src(paths.angularLeafletDirective)
+    .pipe(gulp.dest('./build/assets/js'))
+  ;
 });
 
 // Copy the Angular Google Maps JavaScript file to assets folder
@@ -181,7 +223,14 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'copy:angular-google-maps', 'copy:lodash', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', [
+    'copy',
+    'copy:foundation',
+    'copy:leaflet',
+    'copy:angular-leaflet-directive',
+    'copy:underscore',
+    'sass',
+    'uglify'], 'copy:templates', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change

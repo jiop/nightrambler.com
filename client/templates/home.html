@@ -4,16 +4,18 @@ url: /
 animationIn: slideInRight
 ---
 
-<div class="show-for-medium grid-block medium-6 vertical" ng-controller="mapController">
-  <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom">
-    <ui-gmap-markers models="map.markers" coords="'coords'"></ui-gmap-markers>
-    <ui-gmap-polyline model="polyline" path="polyline.path" stroke="polyline.stroke" visible='polyline.visible' geodesic='polyline.geodesic' fit="false" editable="polyline.editable" draggable="polyline.draggable" icons='polyline.icons'></ui-gmap-polyline>
-  </ui-gmap-google-map>
+<div class="show-for-medium grid-block medium-6 vertical" ng-controller="homeMapController">
+  <leaflet defaults="defaults" layers="layers" controls="controls" center="center" markers="markers"></leaflet>
 </div>
 
 <div class="grid-block medium-6 vertical" ng-controller="articlesController">
   <div class="grid-content vertical shrink">
-    <h4>Look at This Swag Card</h4>
+    <p>consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
   <div ng-repeat="article in articles" class="grid-content vertical shrink" ng-include="'/partials/article.html'"></div>
 </div>
