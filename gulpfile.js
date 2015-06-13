@@ -62,6 +62,15 @@ var paths = {
   lodash: [
     'bower_components/lodash/lodash.js'
   ],
+  jquery: [
+    'bower_components/jquery/dist/jquery.js'
+  ],
+  scrollMenuJS: [
+    'bower_components/scrollMenu/scrollmenu.js'
+  ],
+  scrollMenuCSS: [
+    'bower_components/scrollMenu/scrollmenu.css'
+  ],
   // These files are for your app's JavaScript
   appJS: [
     'client/assets/js/controllers/*',
@@ -141,6 +150,19 @@ gulp.task('copy:underscore', function(cb) {
   return gulp.src(paths.underscoreJS)
     .pipe(gulp.dest('./build/assets/js'))
   ;
+});
+
+
+gulp.task('copy:jquery', function(cb) {
+  return gulp.src(paths.jquery).pipe(gulp.dest('./build/assets/js'));
+});
+
+gulp.task('copy:scrollMenuJS', function(cb) {
+  return gulp.src(paths.scrollMenuJS).pipe(gulp.dest('./build/assets/js'));
+});
+
+gulp.task('copy:scrollMenuCSS', function(cb) {
+  return gulp.src(paths.scrollMenuCSS).pipe(gulp.dest('./build/assets/css'));
 });
 
 gulp.task('copy:angular-leaflet-directive', function(cb) {
