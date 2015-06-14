@@ -4,12 +4,11 @@
   </div>
   <div class="custom-card-section">
     <div class="grid-block align-spaced small-up-4 medium-up-4 large-up-4">
-      <div class="grid-block"><img class="thumbnail" src="http://placehold.it/100x100"></div>
-      <div class="grid-block"><img class="thumbnail" src="http://placehold.it/100x100"></div>
-      <div class="grid-block"><img class="thumbnail" src="http://placehold.it/100x100"></div>
-      <div class="grid-block"><img class="thumbnail" src="http://placehold.it/100x100"></div>
-      <div class="grid-block"><img class="thumbnail" src="http://placehold.it/100x100"></div>
+      <div ng-repeat="image in article.images" class="grid-block">
+        <img class="thumbnail" src="{{ image.srcMin }}"/>
+      </div>
     </div>
-    <p>{{ article.text }}</p>
+    <p>{{ article.textDisplayed }}</p>
+    <a ng-show="article.toggleLongText" ng-click="toggleLongText(article)">En savoir plus</a>
   </div>
 </div>

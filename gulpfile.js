@@ -54,11 +54,9 @@ var paths = {
   leafletCSS: [
     'bower_components/leaflet/dist/leaflet.css'
   ],
-  // These files include angular-google-maps
   angularGoogleMaps: [
     'bower_components/angular-google-maps/dist/angular-google-maps.js'
   ],
-  // These files include lodash
   lodash: [
     'bower_components/lodash/lodash.js'
   ],
@@ -71,10 +69,13 @@ var paths = {
   scrollMenuCSS: [
     'bower_components/scrollMenu/scrollmenu.css'
   ],
-  // These files are for your app's JavaScript
+  angularTruncate2: [
+    'bower_components/angular-truncate-2/src/truncate.js'
+  ],
   appJS: [
     'client/assets/js/controllers/*',
     'client/assets/js/services/*',
+    'client/assets/js/vendor/*',
     'client/assets/js/app.js'
   ]
 }
@@ -185,6 +186,12 @@ gulp.task('copy:lodash', function() {
   ;
 });
 
+gulp.task('copy:angular-truncate-2', function() {
+  return gulp.src(paths.angularTruncate2)
+    .pipe(gulp.dest('./build/assets/js/'))
+  ;
+});
+
 // Compiles Sass
 gulp.task('sass', function () {
   return gulp.src('client/assets/scss/app.scss')
@@ -251,6 +258,7 @@ gulp.task('build', function(cb) {
     'copy:leaflet',
     'copy:angular-leaflet-directive',
     'copy:underscore',
+    'copy:angular-truncate-2',
     'sass',
     'uglify'], 'copy:templates', cb);
 });

@@ -21,7 +21,19 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
-            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          images: [
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/400/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/200"
+            },
+
+          ]
         },
         {
           id: 2,
@@ -38,7 +50,29 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
-            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          images: [
+            {
+              src: "http://lorempixel.com/500/",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            }
+          ]
         },
         {
           id: 3,
@@ -55,7 +89,39 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
-            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          images: [
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+          ]
         },
         {
           id: 4,
@@ -72,7 +138,14 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
-            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          images: [
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+          ]
         },
         {
           id: 5,
@@ -83,7 +156,20 @@ angular
             zoom: 10
           },
           title: "Perth",
-          text: ""
+          text: "",
+          images: [
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+            {
+              src: "http://lorempixel.com/500/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
+
+          ]
+
         }
       ];
 
