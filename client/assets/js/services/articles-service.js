@@ -24,15 +24,15 @@ angular
             "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           images: [
             {
+              id: 1,
               src: "http://lorempixel.com/500/400",
-              srcMin: "http://lorempixel.com/400/100"
+              srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 2,
               src: "http://lorempixel.com/500/400",
-              srcMin: "http://lorempixel.com/100/200"
+              srcMin: "http://lorempixel.com/100/100"
             },
-
           ]
         },
         {
@@ -50,27 +50,48 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
             "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           images: [
             {
-              src: "http://lorempixel.com/500/",
+              id: 3,
+              src: "http://lorempixel.com/500/200",
               srcMin: "http://lorempixel.com/100/100"
             },
             {
-              src: "http://lorempixel.com/500/400",
+              id: 4,
+              src: "http://lorempixel.com/500/300",
               srcMin: "http://lorempixel.com/100/100"
             },
             {
-              src: "http://lorempixel.com/500/400",
+              id: 5,
+              src: "http://lorempixel.com/500/450",
               srcMin: "http://lorempixel.com/100/100"
             },
             {
-              src: "http://lorempixel.com/500/400",
+              id: 6,
+              src: "http://lorempixel.com/600/400",
               srcMin: "http://lorempixel.com/100/100"
             },
             {
-              src: "http://lorempixel.com/500/400",
-              srcMin: "http://lorempixel.com/100/100"
+              id: 7,
+              src: "http://instagram.com/p/36LANjivQh/media/?size=l",
+              srcMin: "http://instagram.com/p/36LANjivQh/media/?size=t"
             }
           ]
         },
@@ -88,39 +109,43 @@ angular
             "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
             "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           images: [
             {
+              id: 8,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 9,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 10,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 11,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 12,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
             {
+              id: 13,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
-            },
-
+            }
           ]
         },
         {
@@ -138,9 +163,22 @@ angular
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
             "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
             "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
+            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
+            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse" +
+            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non" +
             "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           images: [
             {
+              id: 14,
               src: "http://lorempixel.com/500/400",
               srcMin: "http://lorempixel.com/100/100"
             },
@@ -159,17 +197,22 @@ angular
           text: "",
           images: [
             {
-              src: "http://lorempixel.com/500/400",
-              srcMin: "http://lorempixel.com/100/100"
+              id: 17,
+              src: "http://instagram.com/p/36LANjivQh/media/?size=l",
+              srcMin: "http://instagram.com/p/36LANjivQh/media/?size=t"
             },
 
             {
-              src: "http://lorempixel.com/500/400",
+              id: 15,
+              src: "http://lorempixel.com/400/400",
               srcMin: "http://lorempixel.com/100/100"
             },
-
+            {
+              id: 16,
+              src: "http://lorempixel.com/300/400",
+              srcMin: "http://lorempixel.com/100/100"
+            },
           ]
-
         }
       ];
 
