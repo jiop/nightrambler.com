@@ -15,6 +15,9 @@ angular
       _.each($scope.articles, function(item) {
         item.toggleLongText = true;
         item.textDisplayed = $filter('characters')($filter('words')(item.text, 50), 200);
+        if(item.textDisplayed.length == item.text.length) {
+          item.toggleLongText = false;
+        }
       });
 
       $scope.toggleLongText = function(article) {
