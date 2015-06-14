@@ -72,6 +72,19 @@ var paths = {
   angularTruncate2: [
     'bower_components/angular-truncate-2/src/truncate.js'
   ],
+  fluidboxJS: [
+    'bower_components/fluidbox/jquery.fluidbox.js'
+  ],
+  fluidboxCSS: [
+    'bower_components/fluidbox/css/fluidbox.css'
+  ],
+  colorBoxCSS: [
+    'bower_components/angular-colorbox/themes/dark/colorbox-darktheme.css',
+  ],
+  colorBoxJS: [
+    'bower_components/angular-colorbox/js/angular-colorbox.js',
+    'bower_components/jquery-colorbox/jquery.colorbox.js'
+  ],
   appJS: [
     'client/assets/js/controllers/*',
     'client/assets/js/services/*',
@@ -95,6 +108,12 @@ gulp.task('copy', function() {
   })
     .pipe(gulp.dest('./build'))
   ;
+});
+
+gulp.task('copy:colorBox', function(cb) {
+  gulp.src(paths.colorBoxJS).pipe(gulp.dest('./build/assets/js'));
+  gulp.src(paths.colorBoxCSS).pipe(gulp.dest('./build/assets/css'));
+  cb();
 });
 
 // Copies your app's page templates and generates URLs for them
@@ -153,7 +172,6 @@ gulp.task('copy:underscore', function(cb) {
   ;
 });
 
-
 gulp.task('copy:jquery', function(cb) {
   return gulp.src(paths.jquery).pipe(gulp.dest('./build/assets/js'));
 });
@@ -190,6 +208,11 @@ gulp.task('copy:angular-truncate-2', function() {
   return gulp.src(paths.angularTruncate2)
     .pipe(gulp.dest('./build/assets/js/'))
   ;
+});
+
+gulp.task('copy:fluidbox', function() {
+  gulp.src(paths.fluidboxJS).pipe(gulp.dest('./build/assets/js/'));
+  return gulp.src(paths.fluidboxCSS).pipe(gulp.dest('./build/assets/css/'));
 });
 
 // Compiles Sass
@@ -259,6 +282,8 @@ gulp.task('build', function(cb) {
     'copy:angular-leaflet-directive',
     'copy:underscore',
     'copy:angular-truncate-2',
+    'copy:jquery',
+    'copy:colorBox',
     'sass',
     'uglify'], 'copy:templates', cb);
 });
