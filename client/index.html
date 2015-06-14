@@ -5,23 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>zTravel</title>
     <link href="/assets/css/leaflet.css" rel="stylesheet" type="text/css">
-
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
 
-    <script src="assets/js/underscore.js"></script>
-
-    <script src="/assets/js/foundation.js"></script>
-
-    <script src="/assets/js/leaflet.js"></script>
-    <script src="/assets/js/angular-leaflet-directive.js"></script>
-
-    <script src="/assets/js/truncate.js"></script>
-
-    <script src="/assets/js/templates.js"></script>
-    <script src="/assets/js/routes.js"></script>
-    <script src="/assets/js/app.js"></script>
   </head>
-  <body zf-esc-close>
+  <body zf-esc-close ng-app="application" ng-strict-di>
     <div class="grid-frame vertical">
       <zf-offcanvas id="menu" position="left" class="primary">
         <ul class="vertical menu-bar primary">
@@ -41,5 +28,13 @@
        <div ui-view class="grid-block">
       </div>
     </div>
+    <script src="assets/js/underscore.js"></script>
+    <script src="/assets/js/foundation.js"></script>
+    <script src="/assets/js/leaflet.js"></script>
+    <script src="/assets/js/angular-leaflet-directive.js"></script>
+    <script src="/assets/js/truncate.js"></script>
+    <script src="/assets/js/templates.js"></script>
+    <script src="/assets/js/routes.js"></script>
+    <script src="/assets/js/app.js"></script>
   </body>
 </html>
