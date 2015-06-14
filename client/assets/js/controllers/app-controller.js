@@ -4,6 +4,6 @@ angular
     "appController",
     ['$scope',
     function ($scope) {
-      $scope.applicationTitle = "TOTO";
+      $scope.applicationTitle = "Night Rambler";
     }]
   );
