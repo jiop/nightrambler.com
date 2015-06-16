@@ -14,7 +14,8 @@
       'application.appController',
       'application.articlesController',
       'application.homeMapController',
-      'application.completeMapController'
+      'application.completeMapController',
+      'application.galleryController'
     ])
     .constant('_', window._)
     .config(config)

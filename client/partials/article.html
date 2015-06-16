@@ -1,34 +1,41 @@
 <div id="article-{{ article.id }}" class="custom-card">
   <div class="custom-card-divider">
-    <h1>{{ article.title }} <img zf-iconic="" icon="flag" size="small" class="show-for-medium float-right iconic-color-secondary" ng-click="moveMap(article.coords)"></h1>
+    <h2>{{ article.title }} <i class="show-for-medium float-right fa fa-crosshairs"></i></h2>
   </div>
-  <div class="custom-card-section">
+  <div class="custom-card-section" ng-controller="galleryController">
 
     <div class="grid-block align-spaced small-up-4 medium-up-4 large-up-4">
       <div ng-repeat="image in article.images" class="grid-block gallery">
         <a zf-open="img-{{ article.title }}">
-          <img class="thumbnail" ng-src="{{ image.srcMin }}"/>
+          <img ng-src="{{ image.srcMin }}"/>
         </a>
       </div>
     </div>
 
     <div zf-modal id="img-{{ article.title }}">
-      <div class="image_container">
-        <div class="image_second_container">
-          <img class="image-bla" ng-src="{{ gallery.currentImage.src }}"/>
-        </div>
+
+      <div
+        class="image size-fluid scale-fit"
+        ng-style="{'background-image': 'url(' + slides[currentIndex].image + ')'}"
+        >
+
+        <!-- http://instagram.com/p/36LANjivQh/media/?size=l -->
+        <!-- ng-hide="!isCurrentSlideIndex($index)" -->
+        <!-- ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" -->
+         <!-- slide slide-animation nonDraggableImage -->
+      <!-- <div class="image size-fluid scale-fit" style="background-image: url(http://instagram.com/p/36LANjivQh/media/?size=l);"> -->
+        <img src="http://instagram.com/p/36LANjivQh/media/?size=l" alt="Orientation: Square" width="400" height="400">
+
+        <a class="arrow prev" ng-click="nextSlide()" href="#"></a>
+        <a class="arrow next" ng-click="prevSlide()" href="#"></a>
       </div>
-      <div class="navigation transparent"
-        ng-class="{notsotransparent: hover}"
-        ng-mouseenter="hover = true"
-        ng-mouseleave="hover = false"
-      >
-        <a ng-click="galleryPrev(article)" class="previous">Prev</a>
-        <a ng-click="galleryNext(article)" class="next">Next</a>
-      </div>
+      {{ currentIndex }}
     </div>
 
-    <p>{{ article.textDisplayed }}</p>
-    <a ng-show="article.toggleLongText" ng-click="toggleLongText(article)">En savoir plus</a>
+    <p class="text-justify">{{ article.textDisplayed }}</p>
+    <p>
+      <a ng-show="article.toggleLongText" ng-click="toggleLongText(article)">Lire la suite</a>
+    </p>
+
   </div>
 </div>

@@ -190,6 +190,13 @@ gulp.task('copy:angular-leaflet-directive', function(cb) {
   ;
 });
 
+
+gulp.task('copy:fontawesome', function(cb) { 
+  gulp.src('bower_components/fontawesome/fonts/**.*') .pipe(gulp.dest('./build/assets/fonts')); 
+  gulp.src('bower_components/fontawesome/css/font-awesome.css').pipe(gulp.dest('./build/assets/css'));
+  cb();
+});
+
 // Copy the Angular Google Maps JavaScript file to assets folder
 gulp.task('copy:angular-google-maps', function(cb) {
   return gulp.src(paths.angularGoogleMaps)
@@ -267,7 +274,7 @@ gulp.task('server', ['build'], function() {
       port: 8080,
       host: '10.0.2.15',
       fallback: 'index.html',
-      livereload: true,
+      livereload: false,
       open: true
     }))
   ;
@@ -282,9 +289,10 @@ gulp.task('build', function(cb) {
     'copy:angular-leaflet-directive',
     'copy:underscore',
     'copy:angular-truncate-2',
-    'copy:jquery',
-    'copy:colorBox',
+    //'copy:jquery',
+    //'copy:colorBox',
     'sass',
+    'copy:fontawesome',
     'uglify'], 'copy:templates', cb);
 });
 

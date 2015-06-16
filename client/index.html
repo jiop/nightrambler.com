@@ -3,26 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zTravel</title>
+    <title>Night Rambler</title>
     <link href="/assets/css/leaflet.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
-
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" type="text/css">
   </head>
   <body zf-esc-close ng-app="application" ng-strict-di>
     <div class="grid-frame vertical">
       <zf-offcanvas id="menu" position="left" class="primary">
         <ul class="vertical menu-bar primary">
-          <li><a zf-close="" href="#">×</a></li>
+          <li><a zf-close="" href="#"><i class="fa fa-times"></i>
+</a></li>
           <li><a ui-sref="home" zf-close="menu">Home</a></li>
           <li><a ui-sref="map" zf-close="menu">Complete Map</a></li>
           <li><a ui-sref="about" zf-close="menu">About</a></li>
         </ul>
       </zf-offcanvas>
 
-      <div class="primary title-bar" ng-controller="appController">
-        <span class="left"><a zf-open="menu">Menu</a></span>
+      <div class="custom-title-bar" ng-controller="appController">
+        <span class="left"><a zf-open="menu"><i class="fa fa-bars"></i>
+</a></span>
         <span class="title center">{{ applicationTitle }}</span>
-        <span class="right"><a href="#"></a></span>
       </div>
 
        <div ui-view class="grid-block">
