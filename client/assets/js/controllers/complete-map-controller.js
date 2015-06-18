@@ -64,7 +64,7 @@ angular
 
       articlesService.getArticlesData2(function(articlesData){
         leafletData.getMap().then(function(map) {
-          var bounds = L.latLngBounds([0,0]);
+          // var bounds = L.latLngBounds([0,0]);
 
           // draw markers
           _.each(articlesData, function(value, key, list) {
@@ -72,12 +72,12 @@ angular
               value.coords.latitude,
               value.coords.longitude);
             $scope.markers.push(point);
-            bounds.extend(point);
+            // bounds.extend(point);
           });
 
-          bounds = bounds.pad(-0.2);
+          // bounds = bounds.pad(-0.2);
 
-          map.fitBounds(bounds);
+          // map.fitBounds(bounds);
 
         });
       });

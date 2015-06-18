@@ -53,8 +53,47 @@ $header-bottom-margin: .1rem;
   @include card-section(
     $padding: 1rem
   );
+
+  ul {
+    float: left;
+    // padding-right: 10px;
+    padding-right: 30px;
+
+    li {
+      font-size: 10px;
+      text-align: center;
+    }
+
+    li.rollover {
+      opacity: 1;
+      cursor: pointer;
+      padding-bottom: 0px;
+
+    }
+
+    li.rollover:hover {
+      opacity: 1;
+      background:url(/assets/img/mag.png) center center no-repeat #000;
+    }
+
+    $transition-speed: 0.2s;
+
+    li.rollover img:hover {
+      -o-transition-duration: $transition-speed;
+      -moz-transition-duration: $transition-speed;
+      -webkit-transition: -webkit-transform $transition-speed;
+      transition: all $transition-speed ease-in;
+      opacity: .5;
+    }
+  }
+
   color: black;
 }
+
+
+////////////////////////////////////////////////////////////////////
+
+
 
 ////////////////////////////////////////////////////////////////
 
@@ -128,21 +167,6 @@ h2 {
 
 p {
   font-size: 12px;
-}
-////////////////////////////////////////////////////////////////
-
-
-
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.yellow {
-  background-color: yellow;
 }
 
 /////////////////////////////////////////////////////////
@@ -243,6 +267,20 @@ p {
 
 .notsotransparent {
   opacity: 0.8;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.intro {
+  padding-top: 14px;
+  p::first-letter {
+    font-size: 500%;
+    color: black;
+    font-family: fantasy;
+    line-height: $paragraph-font-size;
+  }
 }
 
 
