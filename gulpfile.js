@@ -54,36 +54,8 @@ var paths = {
   leafletCSS: [
     'bower_components/leaflet/dist/leaflet.css'
   ],
-  angularGoogleMaps: [
-    'bower_components/angular-google-maps/dist/angular-google-maps.js'
-  ],
-  lodash: [
-    'bower_components/lodash/lodash.js'
-  ],
-  jquery: [
-    'bower_components/jquery/dist/jquery.js'
-  ],
-  scrollMenuJS: [
-    'bower_components/scrollMenu/scrollmenu.js'
-  ],
-  scrollMenuCSS: [
-    'bower_components/scrollMenu/scrollmenu.css'
-  ],
   angularTruncate2: [
     'bower_components/angular-truncate-2/src/truncate.js'
-  ],
-  fluidboxJS: [
-    'bower_components/fluidbox/jquery.fluidbox.js'
-  ],
-  fluidboxCSS: [
-    'bower_components/fluidbox/css/fluidbox.css'
-  ],
-  colorBoxCSS: [
-    'bower_components/angular-colorbox/themes/dark/colorbox-darktheme.css',
-  ],
-  colorBoxJS: [
-    'bower_components/angular-colorbox/js/angular-colorbox.js',
-    'bower_components/jquery-colorbox/jquery.colorbox.js'
   ],
   appJS: [
     'client/assets/js/controllers/*',
@@ -108,12 +80,6 @@ gulp.task('copy', function() {
   })
     .pipe(gulp.dest('./build'))
   ;
-});
-
-gulp.task('copy:colorBox', function(cb) {
-  gulp.src(paths.colorBoxJS).pipe(gulp.dest('./build/assets/js'));
-  gulp.src(paths.colorBoxCSS).pipe(gulp.dest('./build/assets/css'));
-  cb();
 });
 
 // Copies your app's page templates and generates URLs for them
@@ -155,14 +121,8 @@ gulp.task('copy:angular-leaflet-directive', function(cb) {
 });
 
 gulp.task('copy:leaflet', function(cb) {
-  gulp.src(paths.leafletJS)
-    .pipe(gulp.dest('./build/assets/js'))
-  ;
-
-  gulp.src(paths.leafletCSS)
-    .pipe(gulp.dest('./build/assets/css'))
-  ;
-
+  gulp.src(paths.leafletJS).pipe(gulp.dest('./build/assets/js'));
+  gulp.src(paths.leafletCSS).pipe(gulp.dest('./build/assets/css'));
   cb();
 });
 
@@ -172,24 +132,11 @@ gulp.task('copy:underscore', function(cb) {
   ;
 });
 
-gulp.task('copy:jquery', function(cb) {
-  return gulp.src(paths.jquery).pipe(gulp.dest('./build/assets/js'));
-});
-
-gulp.task('copy:scrollMenuJS', function(cb) {
-  return gulp.src(paths.scrollMenuJS).pipe(gulp.dest('./build/assets/js'));
-});
-
-gulp.task('copy:scrollMenuCSS', function(cb) {
-  return gulp.src(paths.scrollMenuCSS).pipe(gulp.dest('./build/assets/css'));
-});
-
 gulp.task('copy:angular-leaflet-directive', function(cb) {
   return gulp.src(paths.angularLeafletDirective)
     .pipe(gulp.dest('./build/assets/js'))
   ;
 });
-
 
 gulp.task('copy:fontawesome', function(cb) { 
   gulp.src('bower_components/fontawesome/fonts/**.*') .pipe(gulp.dest('./build/assets/fonts')); 
@@ -197,29 +144,10 @@ gulp.task('copy:fontawesome', function(cb) { 
   cb();
 });
 
-// Copy the Angular Google Maps JavaScript file to assets folder
-gulp.task('copy:angular-google-maps', function(cb) {
-  return gulp.src(paths.angularGoogleMaps)
-    .pipe(gulp.dest('./build/assets/js'))
-  ;
-});
-
-// Copy the Lodash JavaScript file to assets folder
-gulp.task('copy:lodash', function() {
-  return gulp.src(paths.lodash)
-    .pipe(gulp.dest('./build/assets/js/'))
-  ;
-});
-
 gulp.task('copy:angular-truncate-2', function() {
   return gulp.src(paths.angularTruncate2)
     .pipe(gulp.dest('./build/assets/js/'))
   ;
-});
-
-gulp.task('copy:fluidbox', function() {
-  gulp.src(paths.fluidboxJS).pipe(gulp.dest('./build/assets/js/'));
-  return gulp.src(paths.fluidboxCSS).pipe(gulp.dest('./build/assets/css/'));
 });
 
 // Compiles Sass
@@ -236,7 +164,6 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./build/assets/css/'))
   ;
 });
-
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
 gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
@@ -272,7 +199,7 @@ gulp.task('server', ['build'], function() {
   gulp.src('./build')
     .pipe($.webserver({
       port: 8080,
-      host: '10.0.2.15',
+      host: '0.0.0.0',
       fallback: 'index.html',
       livereload: false,
       open: true
@@ -289,8 +216,6 @@ gulp.task('build', function(cb) {
     'copy:angular-leaflet-directive',
     'copy:underscore',
     'copy:angular-truncate-2',
-    //'copy:jquery',
-    //'copy:colorBox',
     'sass',
     'copy:fontawesome',
     'uglify'], 'copy:templates', cb);
