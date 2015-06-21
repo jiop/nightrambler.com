@@ -4,6 +4,7 @@
   "devDependencies": {},
   "private": true,
   "dependencies": {
+    "express": "^4.13.0",
     "foundation-apps": "^1.1.0",
     "front-router": "^1.0.0",
     "gulp": "^3.9.0",
@@ -17,6 +18,7 @@
     "gulp-webserver": "^0.9.1",
     "node-env-file": "^0.1.7",
     "node-sass": "^3.2.0",
+    "path": "^0.11.14",
     "rimraf": "https://registry.npmjs.org/rimraf/-/rimraf-2.3.4.tgz",
     "run-sequence": "https://registry.npmjs.org/run-sequence/-/run-sequence-1.1.0.tgz",
     "semver": "^4.3.6",

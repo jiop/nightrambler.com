@@ -1,16 +1,15 @@
-var spawn = require('child_process').spawn;
-var env = require('node-env-file');
+var path = require('path');
+var express = require('express');
 
-env('./.env');
+var app = express();
 
-var args = ['server'];
-spawn('node_modules/.bin/gulp', args, {
-    stdio: 'inherit',
-    env: process.env,
-  })
-  .on('close', function(err) {
-    if(err)
-      console.log("docpad failed");
-    else
-      console.log("docpad running");
-  });
+app.use(express.static(path.join(__dirname, './build')));
+
+var server = app.listen(8080, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+});
+
+module.exports = app;
