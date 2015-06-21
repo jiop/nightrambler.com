@@ -155,11 +155,15 @@ gulp.task('sass', function () {
   return gulp.src('client/assets/scss/app.scss')
     .pipe($.sass({
       includePaths: paths.sass,
-      outputStyle: (isProduction ? 'compressed' : 'nested'),
-      errLogToConsole: true
-    }).on('error', function (err) {
-      console.error('Error', err.message);
+      outputStyle: 'compressed',
     }))
+//    .pipe($.sass({
+//      includePaths: paths.sass,
+//      outputStyle: (isProduction ? 'compressed' : 'nested'),
+//      errLogToConsole: true
+//    }).on('error', function (err) {
+//      console.error('Error', err.message);
+//    }))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie 10']
     }))
