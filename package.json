@@ -1,9 +1,6 @@
 {
   "name": "night-rambler",
   "version": "0.1.0",
-  "scripts": {
-    "start": "server.js"
-  },
   "devDependencies": {},
   "private": true,
   "dependencies": {
