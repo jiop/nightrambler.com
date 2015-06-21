@@ -204,7 +204,7 @@ gulp.task('uglify:app', function() {
 gulp.task('server', ['build'], function() {
   gulp.src('./build')
     .pipe($.webserver({
-      port: 8080,
+      port: process.env.PORT,
       host: '0.0.0.0',
       fallback: 'index.html',
       livereload: false,
