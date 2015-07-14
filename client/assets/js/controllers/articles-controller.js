@@ -2,35 +2,37 @@ angular
   .module('application.articlesController', ['truncate'])
   .controller(
     "articlesController",
-    ['$scope', '$timeout', '$http', '$rootScope', 'articlesService', '$filter', '$element',
-    function ($scope, $timeout, $http, $rootScope, articlesService, $filter, $element) {
+    ['$scope', '$timeout', '$http', '$rootScope', 'articlesService', '$filter', '$element', 'Post',
+    function ($scope, $timeout, $http, $rootScope, articlesService, $filter, $element, Post) {
       $scope.greeting = 'Hello World!';
 
       $scope.moveMap = function(coords) {
         $rootScope.$broadcast('moveToMarkerEvent', coords);
       };
 
-      $scope.articles = articlesService.getArticlesData();
+      $scope.articles = Post.query();
+      $scope.articles.$promise.then(function (result) {
+        $scope.articles = result.posts;
+        _.each($scope.articles, function(item) {
+          item.toggleLongText = true;
+          item.textDisplayed = $filter('characters')($filter('words')(item.body, 50), 200);
+          if(item.textDisplayed.length == item.body.length) {
+            item.toggleLongText = false;
+          }
+        });
+        $scope.gallery = { index: 0, currentImage: {} };
 
-      _.each($scope.articles, function(item) {
-        item.toggleLongText = true;
-        item.textDisplayed = $filter('characters')($filter('words')(item.text, 50), 200);
-        if(item.textDisplayed.length == item.text.length) {
-          item.toggleLongText = false;
+        var firstArticle = _.first($scope.articles);
+        if(firstArticle !== undefined && firstArticle.images.length > 0) {
+          $scope.gallery.currentImage = { src: firstArticle.images[0].src };
         }
+        // $scope.gallery.currentImage = { src: "_.first($scope.articles).images[0].src" };
       });
 
       $scope.toggleLongText = function(article) {
         if(article.toggleLongText) {
-          article.textDisplayed = article.text;
+          article.textDisplayed = article.body;
           article.toggleLongText = false;
-        }
-      };
-
-      $scope.gallery = {
-        index: 0,
-        currentImage: {
-          src: _.first($scope.articles).images[0].src
         }
       };
 

@@ -4,24 +4,22 @@
   </div>
   <div class="custom-card-section" ng-controller="galleryController">
 
-    <ul class="thumbnails no-bullet medium-4">
+    <ul ng-if="!!article.images.length" class="thumbnails no-bullet medium-4">
       <li class="rollover gallery-link">
-        <!-- <span class=""></span> -->
         <img zf-open="img-{{ article.title }}" ng-src="{{ article.images[0].srcMin }}"/>
-        <!-- <div style="position:relative; top: -30px; left: 10px; font-size: 12px; font-weight: bold; color: white;"/>Gallerie photo</div> -->
       </li>
       <li>Cliquer sur l'image pour voir la suite de l'album</li>
-    <div zf-modal id="img-{{ article.title }}">
-      <div
-        class="image size-fluid scale-fit"
-        ng-style="{'background-image': 'url(' + slides[currentIndex].image + ')'}"
-        >
-        <img src="http://instagram.com/p/36LANjivQh/media/?size=l" alt="Orientation: Square" width="400" height="400">
-        <a class="arrow prev" ng-click="nextSlide()" href="#"></a>
-        <a class="arrow next" ng-click="prevSlide()" href="#"></a>
+      <div zf-modal id="img-{{ article.title }}">
+        <div
+          class="image size-fluid scale-fit"
+          ng-style="{'background-image': 'url(' + slides[currentIndex].image + ')'}"
+          >
+          <img src="http://instagram.com/p/36LANjivQh/media/?size=l" alt="Orientation: Square" width="400" height="400">
+          <a class="arrow prev" ng-click="nextSlide()" href="#"></a>
+          <a class="arrow next" ng-click="prevSlide()" href="#"></a>
+        </div>
+        {{ currentIndex }}
       </div>
-      {{ currentIndex }}
-    </div>
     </ul>
     <p class="text-justify">{{ article.textDisplayed }}</p>
     <p><a ng-show="article.toggleLongText" ng-click="toggleLongText(article)">Lire la suite</a></p>

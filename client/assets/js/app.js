@@ -2,6 +2,7 @@
   'use strict';
   angular
     .module('application', [
+      'ngResource',
       'ui.router',
       'ngAnimate',
       'foundation',
@@ -10,6 +11,7 @@
       'leaflet-directive',
 
       'application.articlesService',
+      'application.postsService',
 
       'application.appController',
       'application.articlesController',

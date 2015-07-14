@@ -59,6 +59,9 @@ var paths = {
   angularTruncate2: [
     'bower_components/angular-truncate-2/src/truncate.js'
   ],
+  angularResource: [
+    'bower_components/angular-resource/angular-resource.js'
+  ],
   appJS: [
     'client/assets/js/controllers/*',
     'client/assets/js/services/*',
@@ -151,6 +154,12 @@ gulp.task('copy:angular-truncate-2', function() {
     .pipe(gulp.dest('./build/assets/js/'));
 });
 
+gulp.task('copy:angular-resource', function() {
+  return gulp
+    .src(paths.angularResource)
+    .pipe(gulp.dest('./build/assets/js/'));
+});
+
 // Compiles Sass
 gulp.task('sass', function () {
   return gulp
@@ -211,6 +220,7 @@ gulp.task('build', function(cb) {
     'copy:angular-truncate-2',
     'sass',
     'copy:fontawesome',
+    'copy:angular-resource',
     'uglify'], 'copy:templates', cb);
 });
 
