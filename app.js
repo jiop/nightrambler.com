@@ -11,6 +11,7 @@ env(path.join(__dirname, '.env'));
 var isProduction = (process.env.NODE_ENV === 'production');
 
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(morgan('combined'));
 app.use(responseTime());
@@ -22,5 +23,7 @@ if(isProduction) {
 }
 
 app.use(express.static(path.join(__dirname, 'build')));
+
+app.listen(port);
 
 module.exports = app;
