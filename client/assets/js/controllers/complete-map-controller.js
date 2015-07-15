@@ -2,8 +2,8 @@ angular
   .module('application.completeMapController', [])
   .controller(
     "completeMapController",
-    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', '_', 'articlesService',
-    function ($scope, $timeout, $http, $rootScope, leafletData, _, articlesService) {
+    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', '_', 'Post',
+    function ($scope, $timeout, $http, $rootScope, leafletData, _, Post) {
       angular.extend($scope, {
         controls: {
             scale: true
@@ -62,23 +62,20 @@ angular
         }
       });
 
-      articlesService.getArticlesData2(function(articlesData){
+      $scope.articles = Post.query();
+      $scope.articles.$promise.then(function (result) {
         leafletData.getMap().then(function(map) {
           // var bounds = L.latLngBounds([0,0]);
-
           // draw markers
-          _.each(articlesData, function(value, key, list) {
+          _.each(result.posts, function(value, key, list) {
             point = L.latLng(
               value.coords.latitude,
               value.coords.longitude);
             $scope.markers.push(point);
             // bounds.extend(point);
           });
-
           // bounds = bounds.pad(-0.2);
-
           // map.fitBounds(bounds);
-
         });
       });
 

@@ -10,7 +10,6 @@
       'foundation.dynamicRouting.animations',
       'leaflet-directive',
 
-      'application.articlesService',
       'application.postsService',
 
       'application.appController',

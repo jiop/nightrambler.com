@@ -2,8 +2,8 @@ angular
   .module('application.homeMapController', [])
   .controller(
     "homeMapController",
-    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', 'articlesService',
-    function ($scope, $timeout, $http, $rootScope, leafletData, articlesService) {
+    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', 'Post',
+    function ($scope, $timeout, $http, $rootScope, leafletData, Post) {
       angular.extend($scope, {
         controls: {
           scale: true
@@ -46,10 +46,11 @@ angular
         }
       });
 
-      articlesService.getArticlesData2(function(articlesData){
+      $scope.articles = Post.query();
+      $scope.articles.$promise.then(function (result) {
         leafletData.getMap().then(function(map) {
           // center map
-          var cntr = _.first(articlesData);
+          var cntr = _.first(result.posts);
           $scope.center = {
             lat : cntr.coords.latitude,
             lng: cntr.coords.longitude,
@@ -57,7 +58,7 @@ angular
           };
 
           // draw markers
-          _.each(articlesData, function(value, key, list) {
+          _.each(result.posts, function(value, key, list) {
             $scope.markers.push({ lat: value.coords.latitude, lng: value.coords.longitude});
           });
         });
