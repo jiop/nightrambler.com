@@ -3,7 +3,6 @@
     <h2>{{ article.title }} <i ng-click="moveMap(article.coords)" class="show-for-medium float-right fa fa-crosshairs clickable"></i></h2>
   </div>
   <div class="custom-card-section" ng-controller="galleryController">
-
     <ul ng-if="!!article.images.length" class="thumbnails no-bullet medium-4">
       <li class="rollover gallery-link">
         <img zf-open="img-{{ article.title }}" ng-src="{{ article.images[0].srcMin }}"/>
@@ -14,7 +13,7 @@
           class="image size-fluid scale-fit"
           ng-style="{'background-image': 'url(' + slides[currentIndex].image + ')'}"
           >
-          <img src="http://instagram.com/p/36LANjivQh/media/?size=l" alt="Orientation: Square" width="400" height="400">
+          <img ng-src="{{ article.images[0].src }}" alt="Orientation: Square" width="400" height="400">
           <a class="arrow prev" ng-click="nextSlide()" href="#"></a>
           <a class="arrow next" ng-click="prevSlide()" href="#"></a>
         </div>
