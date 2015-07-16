@@ -1,9 +1,9 @@
 angular
   .module('application.appController', [])
   .controller(
-    "appController",
+    'appController',
     ['$scope',
-    function ($scope) {
-      $scope.applicationTitle = "Night Rambler";
+    function($scope) {
+      $scope.applicationTitle = 'Night Rambler';
     }]
   );

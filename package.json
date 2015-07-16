@@ -1,7 +1,16 @@
 {
   "name": "night-rambler",
   "version": "0.1.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "https://registry.npmjs.org/gulp/-/gulp-3.9.0.tgz",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-print": "^1.1.0",
+    "gulp-util": "https://registry.npmjs.org/gulp-util/-/gulp-util-3.0.5.tgz",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1",
+    "yargs": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz"
+  },
   "private": true,
   "dependencies": {
     "body-parser": "^1.13.1",

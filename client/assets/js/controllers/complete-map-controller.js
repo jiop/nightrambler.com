@@ -1,12 +1,18 @@
 angular
   .module('application.completeMapController', [])
   .controller(
-    "completeMapController",
+    'completeMapController',
     ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', '_', 'Post',
-    function ($scope, $timeout, $http, $rootScope, leafletData, _, Post) {
+    function($scope, $timeout, $http, $rootScope, leafletData, _, Post) {
+      //jscs:disable maximumLineLength
+      var mapboxApiKey = 'pk.eyJ1IjoiamlvcCIsImEiOiIwZmYzMzFjNzFiNDZjMGQ4ZTlkMmJjZjQ3OTRmMGE3OSJ9.v8e-WIk9ftWhIpfXzrpgbQ';
+      var agisUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+      var mapboxPirateUrl = 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}';
+      //jscs:enable maximumLineLength
+
       angular.extend($scope, {
         controls: {
-            scale: true
+          scale: true
         },
         center: {
           lat: 51.505,
@@ -26,12 +32,12 @@ angular
         markers: [],
         layers: {
           baselayers: {
-            mapbox_pirate: {
+            mapboxPirate: {
               name: 'Mapbox Pirates',
-              url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+              url: mapboxPirateUrl,
               type: 'xyz',
               layerOptions: {
-                apikey: 'pk.eyJ1IjoiamlvcCIsImEiOiIwZmYzMzFjNzFiNDZjMGQ4ZTlkMmJjZjQ3OTRmMGE3OSJ9.v8e-WIk9ftWhIpfXzrpgbQ',
+                apikey: mapboxApiKey,
                 mapid: 'mapbox.pirates'
               }
             },
@@ -40,9 +46,10 @@ angular
               url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
               type: 'xyz'
             },
+
             agis: {
               name: 'ArcGIS',
-              url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+              url: agisUrl,
               type: 'xyz'
             }
           },
@@ -63,7 +70,7 @@ angular
       });
 
       $scope.articles = Post.query();
-      $scope.articles.$promise.then(function (result) {
+      $scope.articles.$promise.then(function(result) {
         leafletData.getMap().then(function(map) {
           // var bounds = L.latLngBounds([0,0]);
           // draw markers
@@ -80,19 +87,18 @@ angular
       });
 
       leafletData.getMap().then(function(map) {
-        $timeout(function() {
-          map.invalidateSize();
-        }, 0);
+        $timeout(function() { map.invalidateSize(); }, 0);
       });
 
-      $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-        if(toState.name == 'map') {
-          leafletData.getMap().then(function(map) {
-            $timeout(function() {
-              map.invalidateSize();
-            }, 0);
-          });
+      $rootScope.$on(
+        '$stateChangeSuccess',
+        function(event, toState, toParams, fromState, fromParams) {
+          if (toState.name == 'map') {
+            leafletData.getMap().then(function(map) {
+              $timeout(function() { map.invalidateSize(); }, 0);
+            });
+          }
         }
-      });
+      );
     }]
   );

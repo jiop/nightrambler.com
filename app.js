@@ -16,7 +16,7 @@ var port = process.env.PORT || 3000;
 app.use(morgan('combined'));
 app.use(responseTime());
 
-if(isProduction) {
+if (isProduction) {
   app.use(compression());
 } else {
   app.use(errorhandler());
