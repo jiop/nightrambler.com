@@ -1,6 +1,16 @@
 {
-  "name": "night-rambler",
+  "name": "nightrambler.com",
   "version": "0.1.0",
+  "private": true,
+  "os" : [ "darwin", "linux" ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jiop/nightrambler.com.git"
+  },
+  "bugs": "https://github.com/jiop/nightrambler.com/issues",
+  "license": "UNLICENSED",
+  "author": "Jérémie Iop <jeremie.iop@gmail.com> (http://jiop.github.io/)",
+  "description" : "Night Rambler website",
   "devDependencies": {
     "browser-sync": "^2.7.13",
     "del": "^1.2.0",
