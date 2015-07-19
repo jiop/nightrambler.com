@@ -78,6 +78,7 @@ gulp.task('images', ['clean-images'], function() {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-styles', function(done) {
+  log('Clean styles');
   var files = [].concat(
     config.temp + '**/*.css',
     config.build + 'styles/**/*.css'
@@ -90,6 +91,7 @@ gulp.task('clean-styles', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-fonts', function(done) {
+  log('Clean fonts');
   clean(config.build + 'fonts/**/*.*', done);
 });
 
@@ -98,6 +100,7 @@ gulp.task('clean-fonts', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-images', function(done) {
+  log('Clean images');
   clean(config.build + 'images/**/*.*', done);
 });
 
@@ -106,6 +109,7 @@ gulp.task('clean-images', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-code', function(done) {
+  log('Clean code');
   var files = [].concat(
     config.temp + '**/*.js',
     config.build + 'js/**/*.js',
@@ -119,12 +123,14 @@ gulp.task('clean-code', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean', function(done) {
+  log('Clean');
   var delconfig = [].concat(config.build, config.temp);
   log('Cleaning: ' + $.util.colors.blue(delconfig));
   del(delconfig, done);
 });
 
 gulp.task('sass-watcher', function() {
+  log('Watch sass files and run styles building on change');
   gulp.watch([config.sass], ['styles']);
 });
 
@@ -152,13 +158,10 @@ gulp.task('templatecache', ['clean-code'], function() {
  */
 gulp.task('wiredep', function() {
   log('Wiring the bower dependencies into the html');
-
   var wiredep = require('wiredep').stream;
   var options = config.getWiredepDefaultOptions();
-
   // Only include stubs if flag is enabled
   var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
-
   return gulp
     .src(config.index)
     .pipe(wiredep(options))
@@ -237,19 +240,19 @@ gulp.task('optimize', ['inject'], function() {
 
 /**
  * serve the dev environment
- * --debug-brk or --debug
  * --nosync
  */
 gulp.task('serve-dev', ['inject'], function() {
+  log('Serve application in dev mode');
   serve(true /*isDev*/);
 });
 
 /**
  * serve the build environment
- * --debug-brk or --debug
  * --nosync
  */
 gulp.task('serve-build', ['build'], function() {
+  log('Serve application in build mode');
   serve(false /*isDev*/);
 });
 
@@ -259,25 +262,15 @@ gulp.task('serve-build', ['build'], function() {
 
 /**
  * serve the code
- * --debug-brk or --debug
  * --nosync
  * @param  {Boolean} isDev - dev or build mode
  * @param  {Boolean} specRunner - server spec runner html
  */
 function serve(isDev, specRunner) {
-  var debug = args.debug || args.debugBrk;
-  var debugMode = args.debug ? '--debug' : args.debugBrk ? '--debug-brk' : '';
   var nodeOptions = getNodeOptions(isDev);
-
-  if (debug) {
-    runNodeInspector();
-    nodeOptions.nodeArgs = [debugMode + '=5858'];
-  }
-
   if (args.verbose) {
     console.log(nodeOptions);
   }
-
   return $.nodemon(nodeOptions)
     .on('restart', ['vet'], function(ev) {
       log('*** nodemon restarted');
@@ -309,13 +302,6 @@ function getNodeOptions(isDev) {
     },
     watch: [config.server]
   };
-}
-
-function runNodeInspector() {
-  log('Running node-inspector.');
-  log('Browse to http://localhost:8080/debug?port=5858');
-  var exec = require('child_process').exec;
-  exec('node-inspector');
 }
 
 /**
@@ -360,15 +346,9 @@ function inject(src, label, order) {
  * @returns {Stream} The ordered stream
  */
 function orderSrc (src, order) {
-  //order = order || ['**/*'];
   return gulp
     .src(src)
     .pipe($.if(order, $.order(order)));
-}
-
-function handleJscsErrors(err) {
-  console.log('Error: ' + err.toString());
-  this.emit('end');
 }
 
 /**
@@ -452,9 +432,7 @@ function startBrowserSync(isDev, specRunner) {
   if (args.nosync || browserSync.active) {
     return;
   }
-
   log('Starting BrowserSync on port ' + port);
-
   // If build: watches the files, builds, and restarts browser-sync.
   // If dev: watches less, compiles it to css, browser-sync handles reload
   if (isDev) {
@@ -468,7 +446,6 @@ function startBrowserSync(isDev, specRunner) {
       )
       .on('change', changeEvent);
   }
-
   var options = {
     proxy: 'localhost:' + port,
     port: 3000,
@@ -493,7 +470,6 @@ function startBrowserSync(isDev, specRunner) {
   if (specRunner) {
     options.startPath = config.specRunnerFile;
   }
-
   browserSync(options);
 }
 
