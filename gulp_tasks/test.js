@@ -4,5 +4,9 @@
  */
 
 module.exports = function(gulp, $, config) {
-  return function(done) { done(); };
+  var gt = require('./gulp-tools')(gulp, $, config);
+  return function(done) {
+    gt.log('Running tests');
+    done();
+  };
 };

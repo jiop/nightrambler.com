@@ -5,7 +5,7 @@
 
  module.exports = function(gulp, $, config) {
   var gt = require('./gulp-tools')(gulp, $, config);
-  return function(done) {
+  return function() {
     gt.log('Compressing and copying images');
     return gulp
       .src(config.images)

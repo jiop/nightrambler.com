@@ -6,7 +6,7 @@
  module.exports = function(gulp, $, config) {
   var gt = require('./gulp-tools')(gulp, $, config);
   var args = require('yargs').argv;
-  return function(done) {
+  return function() {
     gt.log('Compiling Sass --> CSS');
     return gulp
       .src(config.sass)

@@ -148,7 +148,7 @@ module.exports = function(gulp, $, config) {
     return data.fileName + ' went from ' +
       (data.startSize / 1000).toFixed(2) + ' kB to ' +
       (data.endSize / 1000).toFixed(2) + ' kB and is ' +
-      formatPercent(1 - data.percent, 2) + '%' + difference;
+      self.formatPercent(1 - data.percent, 2) + '%' + difference;
   };
 
   /**
@@ -227,7 +227,7 @@ module.exports = function(gulp, $, config) {
    */
   self.changeEvent = function(event) {
     var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
-    log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
+    self.log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
   };
 
   return self;

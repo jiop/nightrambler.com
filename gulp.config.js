@@ -4,7 +4,6 @@ module.exports = function() {
   var temp = './.tmp/';
   var root = './';
   var server = './src/server/';
-  var wiredep = require('wiredep');
   var bower = {
     json: require('./bower.json'),
     directory: './bower_components/',

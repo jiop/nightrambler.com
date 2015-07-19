@@ -1,7 +1,7 @@
 module.exports = function(gulp, $, config) {
   var gt = require('./gulp-tools')(gulp, $, config);
   var args = require('yargs').argv;
-  return function(done) {
+  return function() {
     gt.log('Analyzing source with JSHint and JSCS.');
     return gulp
       .src(config.alljs)
