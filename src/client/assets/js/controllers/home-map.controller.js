@@ -1,5 +1,5 @@
 angular
-  .module('application.homeMapController', [])
+  .module('app.homeMapController', [])
   .controller(
     'homeMapController',
     ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', 'Post',

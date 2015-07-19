@@ -1,4 +1,4 @@
-angular.module('application.postsService', ['ngResource'])
+angular.module('app.postsService', ['ngResource'])
   .factory('Post', ['$resource',
     function($resource) {
       return $resource(

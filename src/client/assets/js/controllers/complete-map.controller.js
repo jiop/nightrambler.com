@@ -1,5 +1,5 @@
 angular
-  .module('application.completeMapController', [])
+  .module('app.completeMapController', [])
   .controller(
     'completeMapController',
     ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', '_', 'Post',

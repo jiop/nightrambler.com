@@ -1,5 +1,5 @@
 angular
-  .module('application.articlesController', ['truncate'])
+  .module('app.articlesController', ['truncate'])
   .controller(
     'articlesController',
     ['$scope', '$timeout', '$http', '$rootScope', '$filter', '$element', 'Post',

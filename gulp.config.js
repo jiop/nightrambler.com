@@ -1,54 +1,110 @@
 module.exports = function() {
-  var bwr = 'bower_components/';
+  var client = './src/client/';
+  var clientApp = client + 'assets/';
+  var temp = './.tmp/';
+  var root = './';
+  var server = './src/server/';
+  var wiredep = require('wiredep');
+  var bowerFiles = wiredep({devDependencies: true}).js;
+  var bower = {
+    json: require('./bower.json'),
+    directory: './bower_components/',
+    ignorePath: '../..'
+  };
+  var nodeModules = 'node_modules';
 
   var config = {
-    assets: [
-      './client/**/*.*',
-      '!./client/templates/**/*.*',
-      '!./client/assets/{scss,js}/**/*.*'
+    /**
+     * File paths
+     */
+    alljs: [
+      './src/**/*.js',
+      './*.js'
     ],
-    // Sass will check these folders for files when you use @import.
-    sass: [
-      'client/assets/scss',
-      bwr + 'foundation-apps/scss'
+    build: './build/',
+    client: client,
+    css: temp + 'app.css',
+    fonts: bower.directory + 'font-awesome/fonts/**/*.*',
+    html: client + '**/*.html',
+    htmltemplates: [
+      client + 'templates/**/*.html',
+      client + 'partials/**/*.html',
+      client + 'views/**/*.html',
     ],
-    // These files include Foundation for Apps and its dependencies
-    foundationJS: [
-      bwr + 'fastclick/lib/fastclick.js',
-      bwr + 'viewport-units-buggyfill/viewport-units-buggyfill.js',
-      bwr + 'tether/tether.js',
-      bwr + 'hammerjs/hammer.js',
-      bwr + 'angular/angular.js',
-      bwr + 'angular-animate/angular-animate.js',
-      bwr + 'angular-ui-router/release/angular-ui-router.js',
-      bwr + 'foundation-apps/js/vendor/**/*.js',
-      bwr + 'foundation-apps/js/angular/**/*.js',
-      '!bower_components/foundation-apps/js/angular/app.js'
+    images: client + 'assets/img/**/*.*',
+    index: client + 'index.html',
+    js: [
+      clientApp + 'js/**/*.js',
+      '!' + clientApp + 'js/**/*.spec.js'
     ],
-    angularLeafletDirective: [
-      bwr + 'angular-leaflet-directive/dist/angular-leaflet-directive.js'
+    jsOrder: [
+      '**/*.controller.js',
+      '**/*.service.js',
+      '**/app.js'
     ],
-    underscoreJS: [
-      bwr + 'underscore/underscore.js'
+    sass: client + 'assets/scss/*.scss',
+    sassDependencies: [
+      bower.directory + 'foundation-apps/scss'
     ],
-    leafletJS: [
-      bwr + 'leaflet/dist/leaflet.js'
+
+    root: root,
+    server: server,
+    source: 'src/',
+
+    stubsjs: '',
+    temp: temp,
+
+    /**
+     * Bower and NPM files
+     */
+    bower: bower,
+    packages: [
+      './package.json',
+      './bower.json'
     ],
-    leafletCSS: [
-      bwr + '/leaflet/dist/leaflet.css'
-    ],
-    angularTruncate2: [
-      bwr + '/angular-truncate-2/src/truncate.js'
-    ],
-    angularResource: [
-      bwr + 'angular-resource/angular-resource.js'
-    ],
-    appJS: [
-      'client/assets/js/controllers/*',
-      'client/assets/js/services/*',
-      'client/assets/js/vendor/*',
-      'client/assets/js/app.js'
-    ]
+
+    /**
+     * optimized files
+     */
+    optimized: {
+      app: 'app.js',
+      lib: 'lib.js'
+    },
+
+    /**
+     * browser sync
+     */
+    browserReloadDelay: 1000,
+
+    /**
+     * template cache
+     */
+    templateCache: {
+      file: 'templates.js',
+      options: {
+        module: 'app.appController',
+        root: 'src/client/templates/',
+        standAlone: false
+      }
+    },
+
+    /**
+     * Node settings
+     */
+    nodeServer: './src/server/app.js',
+    defaultPort: '7203'
+  };
+
+  /**
+  * wiredep and bower settings
+  */
+  config.getWiredepDefaultOptions = function() {
+    var options = {
+      bowerJson: config.bower.json,
+      directory: config.bower.directory,
+      ignorePath: config.bower.ignorePath
+    };
+    return options;
   };
 
   return config;

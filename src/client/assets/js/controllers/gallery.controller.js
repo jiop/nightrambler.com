@@ -1,5 +1,5 @@
 angular
-  .module('application.galleryController', [])
+  .module('app.galleryController', [])
   .controller(
     'galleryController',
     ['$scope',

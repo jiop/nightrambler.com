@@ -1,5 +1,5 @@
 angular
-  .module('application.appController', [])
+  .module('app.appController', [])
   .controller(
     'appController',
     ['$scope',
