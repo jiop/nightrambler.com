@@ -3,7 +3,23 @@ node_js:
   - "0.12"
   - "0.11"
   - "0.10"
-  - "0.8"
-  - "0.6"
   - "iojs"
   - "iojs-v1.0.4"
+
+branches:
+  only:
+    - master
+
+before_install:
+  - npm install bower -g
+  - npm install gulp -g
+
+script:
+  - npm install
+  - bower install
+  - gulp test --verbose
+
+cache:
+  directories:
+  - bower_components
+  - node_modules

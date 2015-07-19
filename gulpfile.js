@@ -1,19 +1,13 @@
-var gulp     = require('gulp');
-var args     = require('yargs').argv;
-var $        = require('gulp-load-plugins')({lazy: true});
-var rimraf   = require('rimraf');
-var del      = require('del');
-var _        = require('lodash');
+var args        = require('yargs').argv;
 var browserSync = require('browser-sync');
+var config      = require('./gulp.config')();
+var del         = require('del');
+var gulp        = require('gulp');
+var path        = require('path');
+var _           = require('lodash');
+var $           = require('gulp-load-plugins')({lazy: true});
 
-var router   = require('front-router');
-var sequence = require('run-sequence');
-var path     = require('path');
-var env      = require('node-env-file');
-
-var config = require('./gulp.config')();
-
-var port   = process.env.PORT || config.defaultPort;
+var port        = process.env.PORT || config.defaultPort;
 
 /**
  * List the available gulp tasks
@@ -269,8 +263,6 @@ function serve(isDev, specRunner) {
   var debugMode = args.debug ? '--debug' : args.debugBrk ? '--debug-brk' : '';
   var nodeOptions = getNodeOptions(isDev);
 
-  var browserSync = !!args.browserSync;
-
   if (debug) {
     runNodeInspector();
     nodeOptions.nodeArgs = [debugMode + '=5858'];
@@ -284,18 +276,14 @@ function serve(isDev, specRunner) {
     .on('restart', ['vet'], function(ev) {
       log('*** nodemon restarted');
       log('files changed:\n' + ev);
-      if (browserSync) {
-        setTimeout(function() {
-          browserSync.notify('reloading now ...');
-          browserSync.reload({stream: false});
-        }, config.browserReloadDelay);
-      }
+      setTimeout(function() {
+        browserSync.notify('reloading now ...');
+        browserSync.reload({stream: false});
+      }, config.browserReloadDelay);
     })
     .on('start', function() {
       log('*** nodemon started');
-      if (browserSync) {
-        startBrowserSync(isDev, specRunner);
-      }
+      startBrowserSync(isDev, specRunner);
     })
     .on('crash', function() {
       log('*** nodemon crashed: script crashed for some reason');
@@ -315,6 +303,13 @@ function getNodeOptions(isDev) {
     },
     watch: [config.server]
   };
+}
+
+function runNodeInspector() {
+  log('Running node-inspector.');
+  log('Browse to http://localhost:8080/debug?port=5858');
+  var exec = require('child_process').exec;
+  exec('node-inspector');
 }
 
 /**
@@ -421,6 +416,26 @@ function bytediffFormatter(data) {
     (data.startSize / 1000).toFixed(2) + ' kB to ' +
     (data.endSize / 1000).toFixed(2) + ' kB and is ' +
     formatPercent(1 - data.percent, 2) + '%' + difference;
+}
+
+/**
+ * Log an error message and emit the end of a task
+ */
+function errorLogger(error) {
+  log('*** Start of Error ***');
+  log(error);
+  log('*** End of Error ***');
+  this.emit('end');
+}
+
+/**
+ * Format a number as a percentage
+ * @param  {Number} num       Number to format as a percent
+ * @param  {Number} precision Precision of the decimal
+ * @return {String}           Formatted perentage
+ */
+function formatPercent(num, precision) {
+  return (num * 100).toFixed(precision);
 }
 
 /**
