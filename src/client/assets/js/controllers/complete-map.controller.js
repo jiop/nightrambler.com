@@ -75,7 +75,7 @@ angular
           // var bounds = L.latLngBounds([0,0]);
           // draw markers
           _.each(result.posts, function(value, key, list) {
-            point = L.latLng(
+            var point = L.latLng(
               value.coords.latitude,
               value.coords.longitude);
             $scope.markers.push(point);
@@ -93,7 +93,7 @@ angular
       $rootScope.$on(
         '$stateChangeSuccess',
         function(event, toState, toParams, fromState, fromParams) {
-          if (toState.name == 'map') {
+          if (toState.name === 'map') {
             leafletData.getMap().then(function(map) {
               $timeout(function() { map.invalidateSize(); }, 0);
             });

@@ -2,8 +2,8 @@ angular
   .module('app.homeMapController', [])
   .controller(
     'homeMapController',
-    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', 'Post',
-    function($scope, $timeout, $http, $rootScope, leafletData, Post) {
+    ['$scope', '$timeout', '$http', '$rootScope', 'leafletData', 'Post', '_',
+    function($scope, $timeout, $http, $rootScope, leafletData, Post, _) {
       //jscs:disable maximumLineLength
       var mapboxApiKey = 'pk.eyJ1IjoiamlvcCIsImEiOiIwZmYzMzFjNzFiNDZjMGQ4ZTlkMmJjZjQ3OTRmMGE3OSJ9.v8e-WIk9ftWhIpfXzrpgbQ';
       var agisUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -90,7 +90,7 @@ angular
       $rootScope.$on(
         '$stateChangeSuccess',
         function(event, toState, toParams, fromState, fromParams) {
-          if (toState.name == 'home') {
+          if (toState.name === 'home') {
             leafletData.getMap().then(function(map) {
               $timeout(function() {
                 map.invalidateSize();

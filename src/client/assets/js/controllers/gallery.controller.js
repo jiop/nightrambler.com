@@ -2,8 +2,8 @@ angular
   .module('app.galleryController', [])
   .controller(
     'galleryController',
-    ['$scope',
-    function($scope) {
+    ['$scope', '_',
+    function($scope, _) {
       $scope.slides = _.map($scope.article.images, function(item) {
         return {image: item.src, description: 'Image 00'};
       });

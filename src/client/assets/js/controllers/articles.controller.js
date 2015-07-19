@@ -2,8 +2,9 @@ angular
   .module('app.articlesController', ['truncate'])
   .controller(
     'articlesController',
-    ['$scope', '$timeout', '$http', '$rootScope', '$filter', '$element', 'Post',
-    function($scope, $timeout, $http, $rootScope, $filter, $element, Post) {
+    ['$scope', '$timeout', '$http', '$rootScope',
+     '$filter', '$element', 'Post', '_',
+    function($scope, $timeout, $http, $rootScope, $filter, $element, Post, _) {
       $scope.greeting = 'Hello World!';
 
       $scope.moveMap = function(coords) {
@@ -18,7 +19,7 @@ angular
           item.textDisplayed = $filter('characters')(
             $filter('words')(item.body, 50),
             200);
-          if (item.textDisplayed.length == item.body.length) {
+          if (item.textDisplayed.length === item.body.length) {
             item.toggleLongText = false;
           }
         });
