@@ -16,16 +16,22 @@ gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
 gulp.task('vet', function() {
-  console.log('Analyzing source with JSHint and JSCS.');
+  log('Analyzing source with JSHint and JSCS.');
   return gulp
-    .src(['./client/**/*.js', './*.js'])
+    .src(config.alljs)
     .pipe($.if(args.verbose, $.print()))
-    .pipe($.jscs())
-    .on('error', handleJscsErrors)
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-    .pipe($.jshint.reporter('fail'));
+    .pipe($.jshint.reporter('fail'))
+    .pipe($.jscs())
+    .on('error', errorLogger);
 });
+
+/**
+ * Run specs once and exit
+ * @return {Stream}
+ */
+gulp.task('test', ['vet'], function(done) { done(); });
 
 /**
  * Compile less to css
@@ -480,7 +486,7 @@ function startBrowserSync(isDev, specRunner) {
     injectChanges: true,
     logFileChanges: true,
     logLevel: 'debug',
-    logPrefix: 'gulp-patterns',
+    logPrefix: 'nightrambler.com',
     notify: true,
     reloadDelay: 0
   };
