@@ -17,7 +17,6 @@ before_install:
 script:
   - npm install
   - bower install
-  - gulp test --verbose
 
 cache:
   directories:
