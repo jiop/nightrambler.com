@@ -5,13 +5,11 @@ module.exports = function() {
   var root = './';
   var server = './src/server/';
   var wiredep = require('wiredep');
-  var bowerFiles = wiredep({devDependencies: true}).js;
   var bower = {
     json: require('./bower.json'),
     directory: './bower_components/',
     ignorePath: '../..'
   };
-  var nodeModules = 'node_modules';
 
   var config = {
     /**
@@ -19,7 +17,8 @@ module.exports = function() {
      */
     alljs: [
       './src/**/*.js',
-      './*.js'
+      './*.js',
+      './gulp_tasks/*.js'
     ],
     build: './build/',
     client: client,
