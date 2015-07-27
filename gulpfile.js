@@ -30,7 +30,7 @@ gulp.task('build', ['optimize', 'images', 'fonts'], getTask('build'));
 gulp.task('optimize', ['inject'], getTask('optimize'));
 
 gulp.task('serve-dev', ['inject'], getTask('serve-dev'));
-gulp.task('serve-build', ['build'], getTask('serve-build'));
+gulp.task('serve-prod', ['build'], getTask('serve-prod'));
 
 gulp.task('sass-watcher', function() {
   gt.log('Watch sass files and run styles building on change');

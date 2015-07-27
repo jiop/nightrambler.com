@@ -6,7 +6,7 @@ var compression   = require('compression');
 var bodyParser    = require('body-parser');
 var cors          = require('cors');
 
-var environment   = process.env.NODE_ENV;
+var environment   = process.env.NODE_ENV || 'production';
 var port          = process.env.PORT || 3000;
 
 var app = express();
@@ -22,8 +22,8 @@ app.use(errorhandler());
 console.log('Start node server on ' + port + ' in ' + environment + ' mode');
 
 switch (environment) {
-  case 'build':
-    console.log('** BUILD **');
+  case 'production':
+    console.log('** PROD **');
     app.use(express.static('./build/'));
     app.use('/*', express.static('./build/index.html'));
     break;

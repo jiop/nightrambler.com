@@ -45,7 +45,7 @@ module.exports = function(gulp, $, config) {
       delayTime: 1,
       env: {
         'PORT': port,
-        'NODE_ENV': isDev ? 'dev' : 'build'
+        'NODE_ENV': isDev ? 'development' : 'production'
       },
       watch: [config.server]
     };
